@@ -1,0 +1,26 @@
+{
+  "name": "rsocket-load-balancing",
+  "version": "1.0.0-alpha.3",
+  "license": "Apache-2.0",
+  "main": "dist/index",
+  "types": "dist/index",
+  "files": [
+    "dist",
+    "LICENSE"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "yarn run clean && yarn run compile",
+    "clean": "rimraf -rf ./dist",
+    "compile": "tsc -p tsconfig.build.json",
+    "prepublishOnly": "yarn run build",
+    "test": "echo \"Error: run tests from root\" && exit 0"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "rimraf": "~3.0.2",
+    "typescript": "~4.5.2"
+  }
+}

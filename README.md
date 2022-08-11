@@ -40,6 +40,7 @@ Packages are independently versioned.
 - [rsocket-websocket-client](https://www.npmjs.com/package/rsocket-websocket-client)
 - [rsocket-websocket-server](https://www.npmjs.com/package/rsocket-websocket-server)
 - [rsocket-adapter-rxjs](https://www.npmjs.com/package/rsocket-adapter-rxjs)
+- [rsocket-load-balancing](https://www.npmjs.com/package/rsocket-load-balancing)
 
 ## Contributing
 
