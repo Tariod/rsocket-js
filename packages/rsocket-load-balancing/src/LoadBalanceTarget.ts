@@ -1,7 +1,9 @@
 "use strict";
 
-export interface LoadBalanceTarget {}
+import { ClientTransport } from "rsocket-core";
+
+export type LoadBalanceTarget = () => ClientTransport;
 
 export type LoadBalanceTargetSource =
-  | Iterator<LoadBalanceTarget>
-  | AsyncIterator<LoadBalanceTarget>;
+  | Iterator<LoadBalanceTarget[]>
+  | AsyncIterator<LoadBalanceTarget[]>;

@@ -1,15 +1,21 @@
 "use strict";
 
-import { RSocket } from "rsocket-core";
+import { ConnectorConfig, RSocket } from "rsocket-core";
 
 import { LoadBalanceStrategy } from "./LoadBalanceStrategy";
 import { LoadBalanceTargetSource } from "./LoadBalanceTarget";
 import { RoundRobinLoadBalanceStrategy } from "./strategies";
 
+export type LoadBalancedRSocketConnectorConfig = Omit<
+  ConnectorConfig,
+  "transport"
+>;
+
 export class LoadBalancedRSocketConnector {
   public constructor(
-    public readonly targets: LoadBalanceTargetSource,
-    public readonly strategy: LoadBalanceStrategy = new RoundRobinLoadBalanceStrategy()
+    private readonly config: LoadBalancedRSocketConnectorConfig,
+    private readonly targets: LoadBalanceTargetSource,
+    private readonly strategy: LoadBalanceStrategy = new RoundRobinLoadBalanceStrategy()
   ) {}
 
   public async connect(): Promise<RSocket> {
